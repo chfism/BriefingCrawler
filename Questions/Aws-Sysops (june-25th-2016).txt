@@ -1,0 +1,129 @@
+Question1: You have a Linux EC2 web server instance running inside a VPC The instance is in a public subnet and has an EIP associated with it so you can connect to It over the Internet via HTTP or SSH The instance was also fully accessible when you last logged in via SSH. and was also serving web requests on port 80. Now you are not able to SSH into the host nor does it respond to web requests on port 80 that were working fine last time you checked You have double-checked that all networking configuration parameters (security groups route tables, IGWEIP. NACLs etc.) are properly configured (and you haven’t made any changes to those anyway since you were last able to reach the instance). You look at the EC2 console and notice that system status checks show “impaired”. Which should be your next step in troubleshooting and attempting to get the instance back to a healthy state so that you can log in again?
+ A.  Stop and start the instance so that it will be able to be redeployed on a healthy host system that most likely will fix the  “impaired” system status
+ B.  Reboot your instance so that the operating system will have a chance to boot in a clean healthy state that most likely will fix  the ‘impaired” system status
+ C.  Add another dynamic private IP address to me instance and try to connect via mat new path, since the networking stack of  the OS may be locked up causing the “impaired” system status
+ D.  Add another Elastic Network Interface to the instance and try to connect via that new path since the networking stack of the  OS may be locked up causing the “impaired” system status
+ E.  Un-map and then re-map the EIP to the instance, since the IGWVNAT gateway may not be working properly, causing the  “impaired” system status
+answers: A.
+
+
+Question2: Your organization’s security policy requires that all privileged users either use frequently rotated passwords or one-time access credentials in addition to username/password. Which two of the following options would allow an organization to enforce this policy for AWS users? Choose 2 answers.
+ A.  Configure multi-factor authentication for privileged 1AM users
+ B.  Create 1AM users for privileged accounts    
+ C.  Implement identity federation between your organization’s Identity provider leveraging the 1AM Security Token Service
+ D.  Enable the 1AM single-use password policy option for privileged users
+answers: B. 
+ D.
+
+
+Question3: You are creating an Auto Scaling group whose Instances need to insert a custom metric into Cloud Watch. Which method would be the best way to authenticate your Cloud Watch PUT request?
+ A.  Create an IAM role with the Put Metric Data permission and modify the Auto Scaling launch configuration to launch instances  in that role
+ B.  Create an IAM user with the Put Metric Data permission and modify the Auto Scaling launch configuration to inject the users  credentials into the instance User Data
+ C.  Modify the appropriate Cloud Watch metric policies to allow the Put Metric Data permission to instances from the Auto Scaling  group
+ D.  Create an IAM user with the Put Metric Data permission and put the credentials in a private repository and have applications  on the server pull the credentials as needed
+answers: D.
+
+
+Question4: You have set up Individual AWS accounts for each project. You have been asked to make sure your AWS Infrastructure costs do not exceed the budget set per project for each month. Which of the following approaches can help ensure that you do not exceed the budget each month?
+ A.  Consolidate your accounts so you have a single bill for all accounts and projects
+ B.  Set up auto scaling with Cloud Watch alarms using SNS to notify you when you are running too many Instances in a given  account 
+ C.  Set up Cloud Watch billing alerts for all AWS resources used by each project, with a notification occurring when the amount  for each resource tagged to a particular project matches the budget allocated to the project
+ D.  Set up Cloud Watch billing alerts for all AWS resources used by each account, with email notifications when it hits 50%, 80%  and 90% of its budgeted monthly spend
+answers: B.
+
+
+Question5: The majority of your Infrastructure is on premises and you have a small footprint on AWS Your company has decided to roll out a new application that is heavily dependent on low latency connectivity to LOAP for authentication Your security policy requires minimal changes to the company’s existing application user management processes. What option would you implement to successfully launch this application1?
+ A.  Create a second, independent LOAP server in AWS for your application to use for authentication
+ B.  Establish a VPN connection so your applications can authenticate against your existing on premises LDAP servers
+ C.  Establish a VPN connection between your data center and AWS create a LDAP replica on AWS and configure your application 
+ to use the LDAP replica for authentication
+ D.  Create a second LDAP domain on AWS establish a VPN connection to establish a trust relationship between your new and  existing domains and use the new domain for authentication
+answers: D.
+
+
+Question6: When preparing for a compliance assessment of your system built inside of AWS. what are three best-practices for you to prepare for an audit? Choose 3 answers.
+ A.  Gather evidence of your IT operational controls
+ B.  Request and obtain applicable third-party audited AWS compliance reports and certifications 
+ C.  Request and obtain a compliance and security tour of an AWS data center for a pre-assessment security review 
+ D.  Request and obtain approval from AWS to perform relevant network scans and in-depth penetration tests of your system’s  Instances and endpoints 
+ E.  Schedule meetings with AWS’s third-party auditors to provide evidence of AWS compliance that maps to your control  objectives
+answers: B. 
+ C. 
+ D.
+
+
+Question7: You are using ElastiCache Memcached to store session state and cache database queries in your infrastructure You notice in Cloud Watch that Evictions and Get Misses are Doth very high. What two actions could you take to rectify this? Choose 2 answers.
+ A.  Increase the number of nodes in your cluster
+ B.  Tweak the max-item-size parameter 
+ C.  Shrink the number of nodes in your cluster
+ D.  Increase the size of the nodes in the duster
+answers: B. 
+ D.
+
+
+Question8: Your EC2-Based Multi-tier application includes a monitoring instance that periodically makes application -level read only requests of various application components and if any of those fail more than three times 30 seconds calls Cloud Watch lo fire an alarm, and the alarm notifies your operations team by email and SMS of a possible application health problem. However, you also need to watch the watcher-the monitoring instance itself-and be notified if it becomes unhealthy. Which of the following Is a simple way to achieve that goal?
+ A.  Run another monitoring instance that pings the monitoring instance and fires a could watch alarm mat notifies your operations  team should the primary monitoring instance become unhealthy.
+ B.  Set a Cloud Watch alarm based on EC2 system and instance status checks and have the alarm notify your operations team  of any detected problem with the monitoring instance.
+ C.  Set a Cloud Watch alarm based on the CPU utilization of the monitoring instance and nave the alarm notifies your operations  team if C r the CPU usage exceeds 50% few more than one minute: then have your monitoring application go into a CPU-bound 
+ loop should it Detect any application problems. 
+ D.  Have the monitoring instances post messages to an SOS queue and then dequeuer those messages on another instance  should DC-the queue cease to have new messages, the second instance should first terminate the original monitoring instance  start another backup monitoring instance and assume the role of the previous monitoring instance and beginning adding messages  to the SOS queue.
+answers: C.
+
+
+Question9: Your company Is moving towards tracking web page users with a small tracking Image loaded on each page Currently you are serving this image out of US-East, but are starting to get concerned about the time It takes to load the image for users on the west coast. What are the two best ways to speed up serving this image? Choose 2 answers.
+ A.  Use Route 53’s Latency Based Routing and serve the image out of US-West-2 as well as USEast-1
+ B.  Serve the image out through Cloud Front 
+ C.  Serve the image out of S3 so that it isn’t being served out of your web application tier
+ D.  Use EBS PIOPs to serve the image faster out of your EC2 instances
+answers: A. B.
+
+
+Question10: An organization’s security policy requires multiple copies of all critical data to be replicated across at least a primary and backup data center. The organization has decided to store some critical data on Amazon S3. Which option should you implement to ensure this requirement is met?
+ A.  Use the S3 copy API to replicate data between two S3 buckets in different regions
+ B.  You do not need to implement anything since S3 data is automatically replicated between regions
+ C.  Use the S3 copy API to replicate data between two S3 buckets in different facilities within an AWS Region 
+ D.  You do not need to implement anything since S3 data is automatically replicated between multiple facilities within an AWS  Region
+answers: C.
+
+
+Question11: You have been asked to propose a multi-region deployment of a web-facing application where a controlled portion of your traffic is being processed by an alternate region. Which configuration would achieve that goal?
+ A.  Route53 record sets with weighted routing policy
+ B.  Route53 record sets with latency based routing policy
+ C.  Auto Scaling with scheduled scaling actions set
+ D.  Elastic Load Balancing with health checks enabled
+answers: D.
+Explanation: 
+ http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html
+
+Question12: When creation of an EBS snapshot Is initiated but not completed the EBS volume?
+ A.  Cannot De detached or attached to an EC2 instance until me snapshot completes
+ B.  Can be used in read-only mode while me snapshot is in progress
+ C.  Can be used while me snapshot Is in progress 
+ D.  Cannot be used until the snapshot completes
+answers: C.
+Explanation: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html
+
+Question13: You have been asked to leverage Amazon VPC BC2 and SOS to implement an application that submits and receives millions of messages per second to a message queue. You want to ensure your application has sufficient bandwidth between your EC2 instances and SOS. Which option will provide the most scalable solution for communicating between the application and SOS?
+ A.  Ensure the application instances are properly configured with an Elastic Load Balancer
+ B.  Ensure the application instances are launched in private subnets with the EBS-optimized option enabled
+ C.  Ensure the application instances are launched in public subnets with the associate-public-IP address=true option enabled 
+ D.  Launch application instances in private subnets with an Auto Scaling group and Auto Scaling triggers configured to watch the  SOS queue size
+answers: C.
+Explanation: http://www.cardinalpath.com/autoscaling-your-website-with-amazon-web-services-part-2/
+
+Question14: What is a placement group?
+ A.  A collection of Auto Scaling groups in the same Region
+ B.  Feature that enables EC2 instances to interact with each other via nigh bandwidth, low latency connections
+ C.  A collection of Elastic Load Balancers in the same Region or Availability Zone 
+ D.  A collection of authorized Cloud Front edge locations for a distribution
+answers: C.
+Explanation: http://aws.amazon.com/ec2/faqs/
+
+Question15: When an EC2 instance that is backed by an S3-based AMI Is terminated, what happens to the data on me root volume?
+ A.  Data is automatically saved as an E8S volume.
+ B.  Data is automatically saved as an ESS snapshot.
+ C.  Data is automatically deleted.
+ D.  Data is unavailable until the instance is restarted.
+answers: D.
+Explanation: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html
+
